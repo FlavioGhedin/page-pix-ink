@@ -24,7 +24,7 @@
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 10px;
-            word-break: break-all;
+            word-break: break-word;
         }
         button {
             background: #28a745;
@@ -34,9 +34,13 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            transition: background 0.3s;
         }
         button:hover {
             background: #218838;
+        }
+        button:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -44,19 +48,29 @@
     <div class="container">
         <h2>Chave Pix Capim Alecrim</h2>
         <p class="pix-key" id="pixKey">48996857554</p>
-        <button onclick="copyPixKey()">Clique aqui para copiar a chave PIX</button>
+        <button onclick="copyPixKey()" aria-label="Copiar chave Pix" id="copyButton">Clique aqui para copiar a chave PIX</button>
     </div>
 
     <script>
         function copyPixKey() {
             const pixKey = document.getElementById("pixKey").innerText;
-            navigator.clipboard.writeText(pixKey).then(() => {
-                alert("Chave Pix copiada com sucesso! Pode prosseguir com o pagamento");
-            }).catch(err => {
-                alert("Erro ao copiar a chave Pix");
-                console.error(err);
-            });
+            const copyButton = document.getElementById("copyButton");
+
+            // Criando um elemento de input para copiar a chave
+            const tempInput = document.createElement("textarea");
+            tempInput.value = pixKey;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // Mudando o texto do botão temporariamente
+            copyButton.innerText = "Copiado!";
+            setTimeout(() => {
+                copyButton.innerText = "Clique aqui para copiar a chave PIX";
+            }, 2000);
         }
     </script>
 </body>
 </html>
+
