@@ -3,60 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copiar Chave Pix</title>
+    <title>Chave Pix - Capim Alecrim</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
-            max-width: 400px;
-            margin: auto;
+            background-color: #fff;
             padding: 20px;
-            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 10px;
         }
         .pix-key {
             font-size: 18px;
-            background: #f4f4f4;
+            background-color: #e8f5e9;
             padding: 10px;
+            border: 1px solid #c8e6c9;
             border-radius: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             word-break: break-all;
         }
         button {
-            background: #28a745;
+            background-color: #4CAF50;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background: #218838;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <img src="https://i.imgur.com/DWy0k0T.jpeg" alt="Logo Capim Alecrim" class="logo">
         <h2>Chave Pix Capim Alecrim</h2>
-        <p class="pix-key" id="pixKey">teste</p>
-        <button onclick="copyPixKey()">Clique aqui para copiar a chave PIX</button>
+        <p class="pix-key" id="pixKey">sua-chave-pix-aqui</p>
+        <button onclick="copyPixKey()">Copiar Chave Pix</button>
     </div>
 
     <script>
         function copyPixKey() {
-            const pixKey = document.getElementById("pixKey").innerText;
+            const pixKey = document.getElementById('pixKey').innerText;
             navigator.clipboard.writeText(pixKey).then(() => {
-                alert("Chave Pix copiada com sucesso! Pode prosseguir com o pagamento");
+                alert('Chave Pix copiada com sucesso!');
             }).catch(err => {
-                alert("Erro ao copiar a chave Pix");
+                alert('Erro ao copiar a Chave Pix.');
                 console.error(err);
             });
         }
     </script>
 </body>
 </html>
+
