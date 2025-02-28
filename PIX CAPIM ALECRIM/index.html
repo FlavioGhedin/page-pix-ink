@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar Chave Pix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .pix-key {
+            font-size: 18px;
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Chave Pix Capim Alecrim</h2>
+        <p class="pix-key" id="pixKey">48996857554</p>
+        <button onclick="copyPixKey()">Clique aqui para copiar a chave PIX</button>
+    </div>
+
+    <script>
+        function copyPixKey() {
+            const pixKey = document.getElementById("pixKey").innerText;
+            navigator.clipboard.writeText(pixKey).then(() => {
+                alert("Chave Pix copiada com sucesso! Pode prosseguir com o pagamento");
+            }).catch(err => {
+                alert("Erro ao copiar a chave Pix");
+                console.error(err);
+            });
+        }
+    </script>
+</body>
+</html>
